@@ -1,11 +1,13 @@
-package TicTacToe;
+package TicTacToe.controller;
+
+import TicTacToe.model.Model;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class BoardListener implements MouseListener {
+public abstract class BoardListener implements MouseListener {
 
-    private Model model;
+    protected Model model;
 
     public BoardListener(Model model) {
         this.model = model;
@@ -20,18 +22,6 @@ public class BoardListener implements MouseListener {
     @Override
     public void mousePressed(MouseEvent e) {
 
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        if (model.isGameOver()){
-            model.resetGame();
-            return;
-        }
-        int P = TicTacToeWindow.CELL_PX;
-        int x = e.getX()/P;
-        int y = e.getY()/P;
-        model.makeMove(x, y);
     }
 
 

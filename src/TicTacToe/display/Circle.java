@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.display;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;

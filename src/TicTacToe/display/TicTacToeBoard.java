@@ -1,4 +1,6 @@
-package TicTacToe;
+package TicTacToe.display;
+
+import TicTacToe.model.Model;
 
 import java.awt.*;
 
@@ -10,14 +12,14 @@ public class TicTacToeBoard extends Canvas {
 
     public TicTacToeBoard(Model model) {
         this.model = model;
-        int P = TicTacToeWindow.CELL_PX;
+        int P = TicTacToe.display.TicTacToeWindow.CELL_PX;
         Dimension canvasSize = new Dimension(3 * P, 3 * P);
         setSize(canvasSize);
     }
 
     @Override
     public void paint(Graphics g) {
-        int P = TicTacToeWindow.CELL_PX;
+        int P = TicTacToe.display.TicTacToeWindow.CELL_PX;
         Graphics2D g2 = (Graphics2D) g;
         //draw grid
         g2.setColor(Color.BLACK);

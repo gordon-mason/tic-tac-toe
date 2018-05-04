@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.model;
 
 import java.util.Observable;
 
@@ -25,8 +25,13 @@ public class Model extends Observable {
         return winner;
     }
 
+
     public boolean isGameOver(){
         return gameOver;
+    }
+
+    public boolean isFirstPlayersTurn(){
+        return playerOneTurn;
     }
 
 
@@ -55,6 +60,7 @@ public class Model extends Observable {
         else return false;
     }
 
+
     private boolean isDraw() {
         for (int x = 0; x < 3; x++){
             for (int y = 0; y < 3; y++){
@@ -65,6 +71,7 @@ public class Model extends Observable {
         }
         return true;
     }
+
 
     private boolean isWinningMove() {
         for (int i = 0; i < 3; i ++){
@@ -91,5 +98,19 @@ public class Model extends Observable {
     }
 
 
+    public Model copy(){
+        Model model = new Model();
+        int[][] newBoard = new int[3][3];
+        for (int x = 0; x < 3; x++){
+            for (int y = 0; y < 3; y++){
+                newBoard[x][y] = board[x][y];
+            }
+        }
+        model.board = newBoard;
+        model.gameOver = this.gameOver;
+        model.playerOneTurn = this.playerOneTurn;
+        model.winner = this.winner;
+        return model;
+    }
 
 }
